@@ -5,30 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras - Diogo Martins Company</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        table {
-            width: 100%;
-            margin-bottom: 20px;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        #total {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .payment-methods input {
-            margin: 5px;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -45,48 +21,37 @@
 
     <section class="container">
         <h2>Itens no Carrinho</h2>
+        <!-- Tabela para exibir os itens no carrinho -->
+        <table id="cartTable">
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Preço Unitário (€)</th>
+                <th>Total (€)</th>
+            </tr>
+            <!-- Os itens do carrinho serão inseridos aqui pelo JavaScript -->
+        </table>
 
-        <!-- Exemplo de itens no carrinho -->
-        <form action="checkout.html" method="POST">
-            <table>
-                <tr>
-                    <th>Produto</th>
-                    <th>Quantidade</th>
-                    <th>Preço Unitário (€)</th>
-                    <th>Total (€)</th>
-                </tr>
-                <tr>
-                    <td>Samsung S24</td>
-                    <td><input type="number" name="quantidade_samsung" value="1" min="1"></td>
-                    <td>899,00</td>
-                    <td>899,00</td>
-                </tr>
-                <tr>
-                    <td>iPhone 15</td>
-                    <td><input type="number" name="quantidade_iphone" value="2" min="1"></td>
-                    <td>999,00</td>
-                    <td>1998,00</td>
-                </tr>
-                <tr>
-                    <td colspan="3" style="text-align:right"><strong>Total a Pagar:</strong></td>
-                    <td id="total">2897,00</td>
-                </tr>
-            </table>
+        <!-- Exibir o total geral do carrinho -->
+        <p id="totalCart">Total a Pagar: 0,00€</p>
 
-            <h3>Escolha a Forma de Pagamento</h3>
-            <div class="payment-methods">
-                <label><input type="radio" name="payment" value="mbway" required> MBWAY</label><br>
-                <label><input type="radio" name="payment" value="credit_card"> Cartão de Crédito/Débito</label><br>
-                <label><input type="radio" name="payment" value="cash_on_delivery"> Pagamento na Entrega</label><br><br>
-
-                <input type="submit" value="Finalizar Compra">
-            </div>
-        </form>
+        <!-- Escolha de forma de pagamento -->
+        <h3>Escolha a Forma de Pagamento</h3>
+        <div class="payment-methods">
+            <label><input type="radio" name="payment" value="mbway" required> MBWAY</label><br>
+            <label><input type="radio" name="payment" value="credit_card"> Cartão de Crédito/Débito</label><br>
+            <label><input type="radio" name="payment" value="cash_on_delivery"> Pagamento na Entrega</label><br><br>
+            <button id="checkoutButton">Finalizar Compra</button>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Diogo Martins Company</p>
     </footer>
+
+    <!-- Script JavaScript para gerir o carrinho -->
+    <script src="cart.js"></script>
 </body>
 </html>
+
 
