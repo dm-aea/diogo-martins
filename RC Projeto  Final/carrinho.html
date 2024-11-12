@@ -5,44 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras - Diogo Martins Company</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        #total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .remove-button {
+            color: red;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Carrinho de Compras</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="produtos.html">Produtos</a></li>
-                <li><a href="carrinho.html">Carrinho</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-            </ul>
+            <a href="index.html">Início</a> | 
+            <a href="produtos.html">Produtos</a> | 
+            <a href="carrinho.html">Carrinho</a>
         </nav>
     </header>
 
     <section class="container">
         <h2>Itens no Carrinho</h2>
-        <!-- Tabela para exibir os itens no carrinho -->
+
+        <!-- Tabela para exibir os itens do carrinho -->
         <table id="cartTable">
             <tr>
                 <th>Produto</th>
-                <th>Quantidade</th>
                 <th>Preço Unitário (€)</th>
+                <th>Quantidade</th>
                 <th>Total (€)</th>
+                <th>Ações</th>
             </tr>
             <!-- Os itens do carrinho serão inseridos aqui pelo JavaScript -->
         </table>
 
         <!-- Exibir o total geral do carrinho -->
-        <p id="totalCart">Total a Pagar: 0,00€</p>
+        <p id="total">Total a Pagar: 0,00€</p>
 
-        <!-- Escolha de forma de pagamento -->
-        <h3>Escolha a Forma de Pagamento</h3>
-        <div class="payment-methods">
-            <label><input type="radio" name="payment" value="mbway" required> MBWAY</label><br>
-            <label><input type="radio" name="payment" value="credit_card"> Cartão de Crédito/Débito</label><br>
-            <label><input type="radio" name="payment" value="cash_on_delivery"> Pagamento na Entrega</label><br><br>
-            <button id="checkoutButton">Finalizar Compra</button>
-        </div>
+        <button onclick="finalizarCompra()">Finalizar Compra</button>
     </section>
 
     <footer>
@@ -50,7 +68,62 @@
     </footer>
 
     <!-- Script JavaScript para gerir o carrinho -->
-    <script src="cart.js"></script>
+    <script>
+        // Carregar os itens do carrinho ao carregar a página
+        function carregarCarrinho() {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const cartTable = document.getElementById("cartTable");
+            let total = 0;
+
+            // Limpa a tabela antes de renderizar os itens
+            cartTable.innerHTML = `
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço Unitário (€)</th>
+                    <th>Quantidade</th>
+                    <th>Total (€)</th>
+                    <th>Ações</th>
+                </tr>
+            `;
+
+            // Itera sobre cada item no carrinho
+            carrinho.forEach((item, index) => {
+                const itemTotal = item.preco * item.quantidade;
+                total += itemTotal;
+
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.nome}</td>
+                    <td>${item.preco.toFixed(2)}</td>
+                    <td>${item.quantidade}</td>
+                    <td>${itemTotal.toFixed(2)}</td>
+                    <td><span class="remove-button" onclick="removerItem(${index})">Remover</span></td>
+                `;
+                cartTable.appendChild(row);
+            });
+
+            // Atualiza o total geral do carrinho
+            document.getElementById("total").textContent = `Total a Pagar: ${total.toFixed(2)}€`;
+        }
+
+        // Função para remover um item do carrinho
+        function removerItem(index) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.splice(index, 1); // Remove o item com o índice especificado
+            localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Atualiza o carrinho no localStorage
+            carregarCarrinho(); // Recarrega o carrinho para atualizar a exibição
+        }
+
+        // Função para finalizar a compra
+        function finalizarCompra() {
+            alert("Obrigado pela compra! A sua encomenda chegará em 12 a 15 dias úteis.");
+            localStorage.removeItem('carrinho'); // Limpa o carrinho após a compra
+            carregarCarrinho(); // Recarrega o carrinho (ficará vazio)
+        }
+
+        // Carrega o carrinho ao iniciar a página
+        carregarCarrinho();
+    </script>
 </body>
 </html>
 

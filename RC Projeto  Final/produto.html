@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Produto</title>
+</head>
+<body>
+    <h1>Samsung S24</h1>
+    <p>Preço: 899,00€</p>
+    <button onclick="adicionarAoCarrinho('Samsung S24', 899.00)">Adicionar ao Carrinho</button>
+
+    <h1>PS5</h1>
+    <p>Preço: 499,00€</p>
+    <button onclick="adicionarAoCarrinho('PS5', 499.00)">Adicionar ao Carrinho</button>
+
+    <!-- Adicione produtos adicionais conforme necessário -->
+
+    <script>
+        function adicionarAoCarrinho(nome, preco) {
+            // Obtenha o carrinho do localStorage ou inicialize como um array vazio
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+            // Verifica se o item já existe no carrinho
+            let itemExistente = carrinho.find(item => item.nome === nome);
+            if (itemExistente) {
+                itemExistente.quantidade += 1; // Se existir, aumenta a quantidade
+            } else {
+                // Se não existir, adiciona o novo item com quantidade 1
+                carrinho.push({ nome: nome, preco: preco, quantidade: 1 });
+            }
+
+            // Salva o carrinho atualizado no localStorage
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+            alert(nome + " foi adicionado ao carrinho!");
+        }
+    </script>
+
+    <a href="carrinho.html">Ver Carrinho</a>
+</body>
+</html>
