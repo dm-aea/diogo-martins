@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <form action="malito:dm153432martins@gmail.com" method="post" enctype="text/plain">
+  Nome:<br>
+  <input type="text" name="name" size="30"><br><br>
+  
+  Email:<br>
+  <input type="text" name="email" size="40"><br><br>
+
+  comentário:<br/>
+<textarea name="comentário" rows="3" cols="50" maxlength="150">
+</textarea><br><br>
+
+Código de Produto:
+<input type="text" name="cod_produto" pattern="[A-Za-z] {3} - [0-9] {4}"
+title="O codigo de produto tem 3 letras - 4 algarismos. Ex: LIS - 0001"
+Name="idade"
+type="number"
+min="18"
+max="65">
+
+Introduza uma data posterior a 1980-01-10:<br>
+<input type="date" name="bday" min="1980-01-01">
+<br><br>
+Introduza uma data anterior a 2015-12-31:<br>
+<input type="date" name="bday" max="2015-12-31">
+<br><br>
+
+<label>Nome Completo: </label>
+<input type="text" name = "nome" size="40" placeholder="Digite o seu nome Completo!" required><br><br>
+Apelido: <input type="text" name="Apelido">
+E-mail: <input type="email" name="name" autocomplete="off"><br><br>
+<p>Preencher e enviar o formulario, depois, atualiza a página para veres como funciona o preencimneto automático</p>
+<p>Atenção! Que o autocomplete está "on" no formulario, mas está "off" para o campo de email</p>
+<input type="submit">
+<input type="submit" value="Enviar">
+<input type="reset" value="Limpar!">
+ </form>   
+</body>
+</html>
