@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+<html>
+<center><h1>Jogo das Imagens</h1></center>    
+<script>
+    function correcao()
+    {
+        filme1=document.getElementById("resposta").value;
+        if(filme1 == "Velocidade furiosa")     {
+                      alert('Acertou.Pontuação:5 pontos!')
+        }
+        else{
+            aler('tente outra vez');
+        }
+    }
+</script>
+</head>
+<body>
+   <img src="fastX.jpeg" width="250" height="320"><br><br>
+   <form name="form1">
+    introduza o nome do filme :
+    <input type="text" id="resposta" style="text-transform: uppercase;" size="30"></form><br> 
+    <button type="button" onclick="correcao"()>Clique aqui para ver o seu resultado</button>
+</body>
+</html>

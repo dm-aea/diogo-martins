@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script>
+    function validaRadio(){
+        if(document.form1.curso[0].checked==false && document.form1.curso[1].checked==false){
+            alert('Por favor, selecione o tipo de curso!');
+            return false;
+        }else{
+            alert('Selecionou o tipo de curso-Professional!');
+        }}
+ </script>   
+</head>
+<body>
+   <form name="form1" onsubmit="return validaRadio()";>
+    <h2>Tipo de Curso</h2>
+    Regular: <input name="curso" type="radio" value="Regular">
+    Professional: <input name="curso" type="radio" value="Professional">
+    <p><input type="submit" value="Enviar"></p>
+   </form> 
+</body>
+</html>

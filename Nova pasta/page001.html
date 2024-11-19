@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+<script>
+function validaForm(){
+    var x = document.formul.nome.value;
+    if (x == null  x == !isNaN(X)) {
+        alert("O campo nome ésta vazio ou é um número! Preencha-o corretamente, por favor!");
+        return false;
+
+    }
+}
+</script>
+</head>
+<body>
+ 
+<form name="form1" onsubmit="validaForm()">
+Nome:
+<input type="text" name="nome" autofocus>
+
+<input type="submit" value="Envia!">
+</form>
+
+</body>
+</html>
+</html>

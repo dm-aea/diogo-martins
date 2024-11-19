@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+  
+<p>introduza um número e clique em OK:</p>
+
+<input id="id1" type="number" min="50" max="100">
+<button onclick="myFunction()">OK</button>
+
+<h3>Se o número for inferior a 50 ou superior a 100, uma mensagem de erro será exibida!</h3>
+<h2 id="cia"></h2>
+
+<script>
+ function myFunction(){
+    var fbi = document.getElementById("id");
+    if(fbi.checkValidity()==false){
+        document.getElementById("cia").innerHTML = fbi.validationMessage;
+    }else{
+        document.getElementById("cia").innerHTML = "Entrada de dados Ok";
+    }
+ }   
+</script>
+</body>
+</html>
