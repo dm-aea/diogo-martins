@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário Principal</title>
+</head>
+<body>
+
+<form>
+<fieldset>
+<legend>Informação Pessoal:</legend>   
+<br>
+<label for="name_id">Nome completo:</label>
+<input type="text" name="nome" size="60" value="">
+<br><br>
+<label for="sexo_id">Sexo: </label>
+<input id="masculino_id" type="radio" value="masculino" name="sexo-info">Masculino
+<input id="feminino_id" type="radio" value="feminino" name="sexo-info">feminino
+<br><br>
+<label for="morada_id">Morada: </label>
+<input type="text" name="morada" size="100" value="">
+<br><br>
+<label for="localidade_id">Localidade</label>
+<input id="localidade_id" name="Localidade" type="text" list="localidades">
+<datelist id="Localidade">
+ <option value="Lisboa">Lisboa</option>   
+ <option value="Odivelas">Odivelas</option>   
+ <option value="Amadora">Amadora</option>   
+ <option value="Oeiras">Oeiras</option>   
+ <option value="Alverca">Alverca</option>   
+</datelist><br><br>
+<label for="tel_id">Telefone/Telemovel: </label>
+<input id="tel_id" type="tel" name="Telefone" size="30" placeholder="Nº de telfone/telemovel"><br><br>
+<label for="naturalidade_id">Naturalidade</label>
+<select id="naturalidade_id" name="naturalidades">
+<option value="PT">Portugal</option>   
+<option value="AN">Angola</option>   
+<option value="BR">Brasil</option>   
+<option value="FR">França</option>   
+<option value="Outro">Outra</option>  
+</select><br><br>
+</fieldset>   
+<input type="submit" value="Enviar" 
+</form>    
+</body>
+</html
