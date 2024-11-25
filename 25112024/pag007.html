@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Formulario com validação</title>
+</head>
+<body>
+ 
+    
+ <form>
+
+ <fieldset>
+<legend>Informação Pessoal</legend>
+<input type="text" name="nome" size="40" placeholder="Digite o seu nome completo!" required><br><br>
+
+<label>idade:</label>
+<input
+name="idade"
+type="number"
+min="18"
+max="65"
+title="A idade mínima é 18 anos e a máxima é 65 anos "> anos.<br><br>
+
+<label>Email:</label>
+<input name="email" type="email" size="50"><br><br>
+
+<label>Site:</label>
+<input name="url" type="url" size="50"><br><br>
+
+<label>Código Postal:</label>
+<input
+name="cod_postal"
+type="text"
+pattern="[0-9](4)[0-9][3]"
+title="O código postal é formado por 4 digitos seguidos de 3 dígitos ex:1500-120">
+ </fieldset> 
+ <br>
+ <input type="reset" value="limpar"><br><br>
+ <input type="submit" value="Enviar dados!">
+ <br>  
+ </form>   
+</body>
+</html>
