@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+ 
+ <h3>Introduza um número e clique OK:</h3>
+ 
+ <input id="id1" type="number" max="100">
+ <button onclick="myFunction()">OK</button>
+
+ <p>Se o número for maior que 100(atributo max), mensagem de erro será exibida.</p>
+ <p id="demo"></p>
+
+ <script>
+function myFunction() {
+    var txt = "";
+    if(document.getElementById("id1").validity.rangeOverflow){
+        txt = "O valor inserido é muito alto!";
+    }else{
+        txt = "Entrada de dados correta!";
+    }
+    document.getElementById("demo").innerHTML =txt;
+}    
+ </script>
+</body>
+</html>
